@@ -1,0 +1,301 @@
+16
+  ruby 2.0.0p247
+
+18.
+  Imprime por consola la cadena 'Hola Mundo' y luego devuelve   un puntero nill diciendo que no hay mas instrucciones que ej  ecutar.
+
+21.
+  2.0.0p247 :001 > "\t\n"
+     => "\t\n" 
+  2.0.0p247 :002 > '\t\n'
+     => "\\t\\n" 
+
+  La diferencia es que si se le pasa con comillas dobles reconoce algunos caracteres especiales,con comillas simples no,lo reconoce como un solo caracter.
+
+22. 
+  %q no espaca los caracteres especiales 
+  
+  2.0.0p247 :007 > %q{hello world\n}
+    => "hello world\\n" 
+  2.0.0p247 :008 > %q{'a' 'b' 'c'}
+    => "'a' 'b' 'c'" 
+
+  
+
+23
+  %Q si los escapa poniendo antes y despues del caracter especial un caracter '\' 
+  
+  2.0.0p247 :009 > %Q{hello world\n}
+    => "hello world\n" 
+  2.0.0p247 :010 > %Q{"a" "b" "c"}
+     => "\"a\" \"b\" \"c\"" 
+
+24
+  En c queda "\"--4--\n--2--\n"
+
+25
+  En c queda "--\#{a}--\n--\#{b}--\n"
+
+26
+
+  2.0.0p247 :029 > s[0,2]
+     => "he" 
+  2.0.0p247 :030 > s[-1,1]
+     => "o" 
+  2.0.0p247 :031 > s[0,10]
+     => "hello" 
+
+27.
+   2.0.0p247 :033 > g<<"world"
+      => "helloworld" 
+
+28.
+   2.0.0p247 :035 > e='.'*3
+      => "..." 
+
+29.
+   2.0.0p247 :037 > "#{a=a+1}"*3
+      => "222"
+
+30.
+   ["this", "is", "a", "test"] separada cada palabra de la cadena que se le p   ase.
+
+31. 
+   2.0.0p247 :039 > %w[\t \n]
+      => ["\\t", "\\n"] 
+
+32.
+   2.0.0p247 :040 > %W[\t \n]
+      => ["\t", "\n"]
+
+33.
+   2.0.0p247 :042 > nils=Array.new(3)
+      => [nil, nil, nil]
+
+34.
+   2.0.0p247 :043 > zeros=Array.new(3,0)
+      => [0, 0, 0] 
+
+35.
+   [[1, 2], [3, 4]] 
+
+36.
+   2.0.0p247 :046 > c=Array.new(3){|i| 2*i}
+      => [0, 2, 4] 
+
+37.
+   2.0.0p247 :048 > a[1,1]
+      => ["b"] 
+   
+   2.0.0p247 :049 > a[-2,2]
+      => ["d", "e"] 
+
+   2.0.0p247 :050 > a[0..2]
+      => ["a", "b", "c"]
+
+   2.0.0p247 :051 > a[0..1]
+      => ["a", "b"]
+  
+   2.0.0p247 :052 > a[-2..-1]
+      => ["d", "e"]
+
+38·
+   2.0.0p247 :055 > a
+      => [["A", "B"], "b", "c", "d", "e"] 
+   2.0.0p247 :057 > a
+      => [["A", "B"], "b", "C", "D", "E"]
+   2.0.0p247 :059 > a
+      => [1, 2, 3, ["A", "B"], "b", "C", "D", "E"] 
+   2.0.0p247 :061 > a
+       => [1, 2, 3, ["A", "B"], "b", "C", "D", "E"] 
+   2.0.0p247 :063 > a
+       => [1, 2, 3, ["A", "B"], "b", "C", "D", "Z"]  
+   2.0.0p247 :065 > a
+       => [1, 2, 3, ["A", "B"], "b", "C", nil] 
+
+39.
+   2.0.0p247 :066 > a=(1...4).to_a
+      => [1, 2, 3] 
+   2.0.0p247 :067 > a=a+[4,5]
+      => [1, 2, 3, 4, 5] 
+   2.0.0p247 :068 > a+=[[6,7,8]]
+      => [1, 2, 3, 4, 5, [6, 7, 8]] 
+
+40.
+   2.0.0p247 :069 > x=%w{a b c b a}
+       => ["a", "b", "c", "b", "a"] 
+   2.0.0p247 :070 > x=x-%w{b c d}
+        => ["a", "a"] 
+
+41.
+   2.0.0p247 :071 > z=[0]*8
+      => [0, 0, 0, 0, 0, 0, 0, 0]
+
+42.
+   2.0.0p247 :073 > a<<1
+      => [1] 
+   2.0.0p247 :074 > a<<2<<3
+      => [1, 2, 3] 
+   2.0.0p247 :075 > a<<[4,5,6]
+      => [1, 2, 3, [4, 5, 6]] 
+   2.0.0p247 :076 > a.concat[7,8]
+   ArgumentError: wrong number of arguments (0 for 1)
+	from (irb):76:in `concat'
+	from (irb):76
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/bin/irb:13:in `<main>'
+43.
+  2.0.0p247 :003 > c= a|b
+     => [1, 2, 3, 4, 5] 
+  2.0.0p247 :004 > d=b|a
+     => [5, 4, 3, 2, 1]
+  2.0.0p247 :005 > e=a&b
+     => [2, 3, 4]  
+  2.0.0p247 :006 > f=b&a
+     => [4, 3, 2]
+
+44.
+   2.0.0p247 :009 > a.to_a
+      => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+   2.0.0p247 :011 > b.to_a
+      => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   2.0.0p247 :012 > b.include? 10
+      => true
+   2.0.0p247 :013 > b.include? 8
+      => true  
+   2.0.0p247 :014 > b.step(2){|x|print "#{x}"}
+      13579 => 1..10 
+   2.0.0p247 :015 > 1..3.to_a
+      NoMethodError: undefined method `to_a' for 3:Fixnum
+	from (irb):15
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/bin/irb:13:in `<main>'
+
+45.
+   2.0.0p247 :017 > r.member?50
+      => true 
+   2.0.0p247 :018 > r.include? 99.9
+      => true 
+   2.0.0p247 :019 > r.member? 99.9
+      => true 
+
+46.
+   2.0.0p247 :020 > true.class
+      => TrueClass
+   2.0.0p247 :021 > false.class
+      => FalseClas
+   2.0.0p247 :022 > puts "hello" if 0
+      hello
+      => nil 
+   2.0.0p247 :023 > puts "hello" if ""
+      (irb):23: warning: string literal in condition
+      hello
+      => nil
+
+47.
+   2.0.0p247 :025 > x.class
+      => Symbol 
+   2.0.0p247 :026 > x=='sym'
+      => false 
+   2.0.0p247 :027 > x==:sym
+      => true 
+   2.0.0p247 :029 > z.class
+      => Symbol 
+   2.0.0p247 :030 > x=='sym'.to_sym
+      => true 
+   2.0.0p247 :031 > x.to_s=='sym'
+      => true
+
+48.
+   2.0.0p247 :037 > print s
+      Rub => nil
+   2.0.0p247 :040 > print s,t
+      RuJava => nil 
+ 
+49.
+   2.0.0p247 :001 > "%d %s" % [3,"rubies"]
+      => "3 rubies" 
+
+50.
+   2.0.0p247 :002 > x,y=4,5
+      => [4, 5] 
+   2.0.0p247 :004 > z=x >y ? x:y
+       => 5
+   2.0.0p247 :005 > x,y,z=[1,2,3]
+      => [1, 2, 3]  
+
+51.
+   2.0.0p247 :007 > x.keys
+      => [:a, :b]
+   2.0.0p247 :008 > x.values
+      => [1, 2]
+   2.0.0p247 :010 > x
+      => {:a=>1, :b=>2, :c=>3}
+   2.0.0p247 :006 > x
+       => {:a=>1, :b=>2, :c=>3}
+   2.0.0p247 :008 > x
+       => {:b=>2, :c=>3}  
+   2.0.0p247 :010 > x.delete_if{|k,v| v % 2== 0 }
+       => {:a=>1} 
+   2.0.0p247 :011 > x
+      => {:a=>1} 
+
+52.
+  2.0.0p247 :012 > yield 4,5
+  LocalJumpError: no block given (yield)
+	from (irb):12
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/bin/irb:13:in `<main>' 
+
+53. 
+   2.0.0p247 :013 > counts= Hash.new(0)
+       => {} 
+   2.0.0p247 :014 > counts={}
+       => {}
+   La diferencia es que con el primer comando creamos un hash vacio en cambio co   n la ultima sentencia estamos creando un bloque vacio.
+
+54. Nada
+
+55. 
+  con la primera sentencia creamos e inicializamos un hash. La última sentencia   obtiene las claves y las ordena,luego se itera sobre este valor accediendo al   valor de la clav  K
+
+
+
+                                                                                                                                                                                                                                                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
